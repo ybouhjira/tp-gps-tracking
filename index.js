@@ -9,7 +9,6 @@ var minimist = require('minimist')
 var args = minimist(process.argv.slice(2))
   , port = parseInt(args.p || args.port || 8000);
 
-
 // serve static files
 var fileServer = new static.Server('./public')
 
