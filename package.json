@@ -1,0 +1,18 @@
+{
+  "name": "taxi-manager",
+  "version": "0.0.0",
+  "description": "An app for managing taxis and client using node.js socket.io and google maps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "author": "ybouhjira",
+  "license": "BSD",
+  "dependencies": {
+    "socket.io": "~0.9.16",
+    "mongoose": "~3.8.8",
+    "node-static": "~0.7.3",
+    "minimist": "0.0.8"
+  }
+}
