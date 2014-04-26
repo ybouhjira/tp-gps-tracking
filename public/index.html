@@ -1,9 +1,28 @@
-<html>
+<!DOCTYPE html>
+<html ng-app="gps-tracking">
 <head>
   <title>GPS Tracking</title>
   <meta charset="utf-8">
+  
+  <!-- js libraries -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+  <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+  <script src='bower_components/underscore/underscore-min.js'></script>
+  <script src='bower_components/angular-google-maps/dist/angular-google-maps.min.js'></script>
+
+  <!-- scripts -->
+  <script src="js/index.js"></script>
+
+  <!-- stylesheets -->
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <style type="text/css">
+    html, body, [class*="angular-google-map"] { width : 100% ; height: 100%; }
+  </style>
 </head>
-<body>
-  Client code here
+<body ng-controller="MapController">
+  <google-map center="map.center" zoom="map.zoom" draggable="true"></google-map>
 </body>
 </html>
