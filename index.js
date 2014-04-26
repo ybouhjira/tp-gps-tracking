@@ -1,26 +1,20 @@
 var minimist = require('minimist')
-  , static = require('node-static')
+  , express = require('express')
   , mongoose = require('mongoose')
   , io = require('socket.io')
   , http = require('http');
-
 
 // get port from cli args
 var args = minimist(process.argv.slice(2))
   , port = parseInt(args.p || args.port || 8000);
 
-// serve static files
-var fileServer = new static.Server('./public')
+// Express framework
+var app = express();
+app.use(express.static(__dirname + '/public'));
+app.listen(port);
 
-var httpServer = http.createServer(function (req, res) {
-  req.addListener('end', function() {
-    fileServer.serve(req, res);
-  }).resume();
-});
+// socket.io listening
+io.listen(http.createServer(app));
 
-httpServer.listen(port);
-
-// Serve socket.io files
-io.listen(httpServer);
-
+// display app url in terminal
 console.log('Application statred at : http://localhost:' + port);
